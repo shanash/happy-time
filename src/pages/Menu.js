@@ -22,6 +22,15 @@ class Menu extends Component {
     ]
   }
 
+  getArrayItem = (name) => {
+    this.state.information.forEach(function(element) {
+      if (element.name == name) {
+        console.log(element.phone);
+        return element.phone;
+      }
+    });
+  }
+
   handleCreate = (data) => {
     const { information } = this.state;
     this.setState({
@@ -32,7 +41,9 @@ class Menu extends Component {
   render() {
     return (
       <div>
-        {this.props.match.params.id}
+        {
+          this.getArrayItem(this.props.match.params.id)
+        }
       </div>
     );
   }
